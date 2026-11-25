@@ -31,7 +31,8 @@
 
   $('#cards').innerHTML = DOCS.map(d => `
     <a class="card" href="#${d.code}" style="--c:${d.color}">
-      <div class="card-cover"><img src="${d.pages[0].img}" alt="" draggable="false"></div>
+      <div class="card-cover"><img src="covers/${d.code}.webp?v=1" alt="" draggable="false" width="1200" height="500"
+        onerror="this.onerror=null;this.src='${d.pages[0].img}';this.classList.add('page-fallback')"></div>
       <div class="card-body">
         <div class="card-sub">${esc(d.sub)}</div>
         <h3>${esc(d.title)}</h3>
