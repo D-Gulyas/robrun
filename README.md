@@ -7,7 +7,7 @@ Sammel-Repo für alles rund um **ROB RUN**: komplett statische Webseiten, veröf
 | Projekt | Live | Ordner |
 |---|---|---|
 | 🗺️ Interaktive Karte von Looty Bay (inkl. aller 53 Mülltonnen) | https://d-gulyas.github.io/robrun/karte/ | [`karte/`](karte/) |
-| 📐 Blaupausen (Anbauraum, Polizeifunk & Radio, Schlüsselräume) | https://d-gulyas.github.io/robrun/blaupausen/ | [`blaupausen/`](blaupausen/) |
+| 📐 Blaupausen (Anbauraum, Polizeifunk & Radio, Schlüsselräume, Sammeltisch) | https://d-gulyas.github.io/robrun/blaupausen/ | [`blaupausen/`](blaupausen/) |
 
 ## Aufbau
 

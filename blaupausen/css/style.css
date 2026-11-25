@@ -83,7 +83,7 @@ kbd { font: 11px/1 ui-monospace, Consolas, monospace; padding: 3px 6px; border-r
   font: 800 15px var(--head); text-transform: uppercase; letter-spacing: 3px; transform: rotate(-3deg);
 }
 
-.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 26px; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 26px; }
 .card {
   position: relative; display: flex; flex-direction: column; text-align: left; padding: 0; overflow: hidden;
   background: var(--card); border: 1px solid var(--line); border-radius: 10px; color: var(--text); text-decoration: none;

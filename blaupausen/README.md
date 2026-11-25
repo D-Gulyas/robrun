@@ -6,7 +6,7 @@ Statische Webseite zum Lesen der ROB-RUN-Blaupausen direkt im Browser, ohne PDF-
 
 Teil des ROB-RUN-Sammel-Repos – Übersicht: https://d-gulyas.github.io/robrun/ · [zurück zur Repo-Übersicht](../README.md)
 
-- **Dossiers:** Anbauraum · Polizeifunk & Radio · Schlüsselräume
+- **Dossiers:** Anbauraum · Polizeifunk & Radio · Schlüsselräume · Sammeltisch
 - Kapitel-Navigation mit Sprung an die richtige Stelle, Seitenvorschau, Fortschrittsbalken
 - Volltextsuche über alle Blaupausen (`/`)
 - Zoom (`+` / `−` / `0`, Strg + Mausrad), Vollbild (`F`), Seiten blättern (`←` / `→`)
@@ -23,7 +23,7 @@ Teil des ROB-RUN-Sammel-Repos – Übersicht: https://d-gulyas.github.io/robrun/
 Python 3 mit PyMuPDF (`pip install pymupdf pillow`):
 
 ```bash
-python tools/render-pdfs.py Anbauraum.pdf Police-Radio.pdf Schluesselraeume.pdf
+python tools/render-pdfs.py Anbauraum.pdf Police-Radio.pdf Schluesselraeume.pdf Sammeltisch.pdf
 ```
 
 Das Skript erzeugt `pages/<code>/NN.webp` und `data/blaupausen.js`. Titel, Farben und Kapitel stehen oben im Skript (`META`).

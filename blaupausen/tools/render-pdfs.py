@@ -28,6 +28,11 @@ META = {
                          "chapters": ["Die Kurzfassung", "Alle Schlüssel nach Seltenheit", "Lila Räume (Epic)", "Goldene Räume (Legendary)",
                                       "Exotische Schlüssel (ID-Karten)", "Gesamtbedarf", "Wichtig: Wird der Mini-Bohrer verbraucht?",
                                       "Mini-Bohrer: Fakten", "Was nicht sicher belegt ist"]},
+    "Sammeltisch": {"code": "collect", "title": "Sammeltisch", "sub": "Operation: Sammler", "color": "#a78bfa", "icon": "📦",
+                    "desc": "Collection Table: alle 34 Sammlungen, Kistenwerte beim Smuggler, Fundorte und Tricks.",
+                    "chapters": ["Das Prinzip", "Die vier Listen", "Notoriety-Bonus auf Kisten (Smuggler)", "Basic – 7 Sets",
+                                 "Uncommon – 7 Sets", "Wo du die Masse-Items stiehlst", "Special – 10 Sets", "Unique – 10 Sets",
+                                 "Tricks: Schneller zur Kiste", "Nicht belegt"]},
 }
 
 
