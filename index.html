@@ -28,11 +28,12 @@
     .tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 26px; }
     .tool { display: flex; flex-direction: column; overflow: hidden; text-decoration: none; color: var(--text);
       background: var(--card); border: 1px solid var(--line); border-radius: 10px; transition: transform .2s, box-shadow .2s, border-color .2s; }
-    .tool:hover { transform: translateY(-6px) rotate(-.6deg); border-color: var(--c); box-shadow: 8px 8px 0 var(--c), 0 30px 60px rgba(0,0,0,.5); }
-    .cover { height: 220px; overflow: hidden; position: relative; background: #5fa8ae; }
-    .cover img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s; }
-    .tool:hover .cover img { transform: scale(1.06); }
-    .cover::after { content: ""; position: absolute; inset: 0; background: linear-gradient(transparent 50%, var(--card)); }
+    /* Hover: nur anheben (ganze Pixel, keine Drehung) – so bleibt alles scharf */
+    .tool:hover { transform: translateY(-6px); border-color: var(--c); box-shadow: 8px 8px 0 var(--c), 0 30px 60px rgba(0,0,0,.5); }
+    /* Titelbild ohne Animation; Hintergrund = Kartenfarbe, damit an der Kante nichts durchblitzt */
+    .cover { height: 220px; overflow: hidden; position: relative; background: var(--card); }
+    .cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .cover::after { content: ""; position: absolute; inset: 0 0 -1px; background: linear-gradient(transparent 50%, var(--card)); }
     .body { padding: 20px 22px 24px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
     .sub { font: 700 13px var(--head); text-transform: uppercase; letter-spacing: 2px; color: var(--c); }
     h2 { margin: 0; font: italic 900 36px/1 var(--head); text-transform: uppercase; }

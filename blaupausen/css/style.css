@@ -89,16 +89,16 @@ kbd { font: 11px/1 ui-monospace, Consolas, monospace; padding: 3px 6px; border-r
   background: var(--card); border: 1px solid var(--line); border-radius: 10px; color: var(--text); text-decoration: none;
   transition: transform .2s, box-shadow .2s, border-color .2s;
 }
-.card:hover { transform: translateY(-6px) rotate(-.6deg); border-color: var(--c); box-shadow: 8px 8px 0 var(--c), 0 30px 60px rgba(0,0,0,.5); }
-/* Titelbilder 1200×500 (2,4:1) – Motiv mittig, wird je nach Bildschirm sauber beschnitten */
-.card-cover { position: relative; height: 230px; overflow: hidden; background: #0d0f12; }
+/* Hover: nur anheben (ganze Pixel, keine Drehung) – so bleibt alles scharf */
+.card:hover { transform: translateY(-6px); border-color: var(--c); box-shadow: 8px 8px 0 var(--c), 0 30px 60px rgba(0,0,0,.5); }
+/* Titelbilder 1200×500 (2,4:1) – Motiv mittig, ohne Hover-Animation */
+.card-cover { position: relative; height: 230px; overflow: hidden; background: var(--card); }
 .card-cover img {
   width: 100%; height: 100%; display: block; object-fit: cover; object-position: center 40%;
-  transition: transform .4s; user-select: none; -webkit-user-drag: none;
+  user-select: none; -webkit-user-drag: none;
 }
 .card-cover img.page-fallback { height: auto; object-fit: initial; } /* falls ein Titelbild fehlt: PDF-Seite */
-.card:hover .card-cover img { transform: scale(1.05); }
-.card-cover::after { content: ""; position: absolute; inset: 0; background: linear-gradient(transparent 55%, var(--card)); }
+.card-cover::after { content: ""; position: absolute; inset: 0 0 -1px; background: linear-gradient(transparent 55%, var(--card)); }
 .card-foot { display: flex; align-items: center; gap: 16px; margin-top: 14px; }
 .card-icon {
   width: 46px; height: 46px; flex: none; border-radius: 10px; display: grid; place-items: center; font-size: 24px;
