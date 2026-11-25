@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ROB RUN – Blaupausen</title>
+  <meta name="description" content="ROB RUN Blaupausen: Anbauraum, Polizeifunk &amp; Polizeiradio und Schlüsselräume – direkt im Browser lesen.">
+  <meta name="theme-color" content="#0d0f12">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;1,700;1,800;1,900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=3">
+</head>
+<body>
+  <header class="top">
+    <a class="logo" href="#" aria-label="Zur Übersicht">
+      <span class="logo-rob">ROB</span><span class="logo-run">RUN</span>
+      <span class="logo-tag">Blaupausen</span>
+    </a>
+    <nav class="doc-tabs" id="docTabs" aria-label="Blaupausen"></nav>
+    <div class="search">
+      <input id="search" type="search" placeholder="In allen Blaupausen suchen …" autocomplete="off" aria-label="Volltextsuche">
+      <kbd>/</kbd>
+      <ul id="results" hidden></ul>
+    </div>
+  </header>
+
+  <!-- Übersicht -->
+  <main id="home" class="home" hidden>
+    <section class="hero">
+      <div class="stamp">Streng geheim</div>
+      <h1>Die Blaupausen<br><span>für deinen nächsten Coup</span></h1>
+      <p>Drei Dossiers zu ROB RUN – in Ruhe lesen, direkt im Browser. Kein Download, keine Werbung.</p>
+    </section>
+    <section class="cards" id="cards"></section>
+    <p class="fine">Fan-Projekt · nicht mit Kefir oder ROB RUN verbunden · Inhalte basieren auf Fan-Datenbanken und können sich mit Patches ändern.</p>
+  </main>
+
+  <!-- Lesemodus -->
+  <div id="reader" class="reader" hidden>
+    <aside class="side" id="side">
+      <div class="side-head">
+        <div class="side-icon" id="sideIcon"></div>
+        <div>
+          <div class="side-sub" id="sideSub"></div>
+          <h2 id="sideTitle"></h2>
+          <div class="side-meta" id="sideMeta"></div>
+        </div>
+      </div>
+      <div class="side-label">Kapitel</div>
+      <ol class="toc" id="toc"></ol>
+      <div class="side-label">Seiten</div>
+      <div class="thumbs" id="thumbs"></div>
+    </aside>
+
+    <section class="stage" id="stage" tabindex="-1">
+      <div class="pages" id="pages"></div>
+    </section>
+
+    <div class="bar" role="toolbar" aria-label="Ansicht">
+      <button class="bar-btn only-mobile" id="sideBtn" title="Kapitel & Seiten">☰</button>
+      <button class="bar-btn" id="prevBtn" title="Vorherige Seite (←)">‹</button>
+      <span class="bar-page"><b id="pageNow">1</b> / <span id="pageAll">1</span></span>
+      <button class="bar-btn" id="nextBtn" title="Nächste Seite (→)">›</button>
+      <span class="bar-sep"></span>
+      <button class="bar-btn" id="zoomOut" title="Verkleinern (−)">−</button>
+      <button class="bar-btn bar-zoom" id="zoomFit" title="An Breite anpassen (0)">100 %</button>
+      <button class="bar-btn" id="zoomIn" title="Vergrößern (+)">+</button>
+      <span class="bar-sep"></span>
+      <button class="bar-btn" id="fullBtn" title="Vollbild (F)">⛶</button>
+    </div>
+    <div class="progress"><i id="progress"></i></div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="data/blaupausen.js?v=3"></script>
+  <script src="js/app.js?v=3"></script>
+</body>
+</html>
