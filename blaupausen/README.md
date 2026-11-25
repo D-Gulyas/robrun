@@ -2,9 +2,9 @@
 
 Statische Webseite zum Lesen der ROB-RUN-Blaupausen direkt im Browser, ohne PDF-Download.
 
-**📐 Live: https://d-gulyas.github.io/robrun-map/blaupausen/**
+**📐 Live: https://d-gulyas.github.io/robrun/blaupausen/**
 
-**🗺️ Interaktive Karte: https://d-gulyas.github.io/robrun-map/**
+Teil des ROB-RUN-Sammel-Repos – Übersicht: https://d-gulyas.github.io/robrun/ · [zurück zur Repo-Übersicht](../README.md)
 
 - **Dossiers:** Anbauraum · Polizeifunk & Radio · Schlüsselräume
 - Kapitel-Navigation mit Sprung an die richtige Stelle, Seitenvorschau, Fortschrittsbalken
