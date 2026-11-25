@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ROB RUN – Interaktive Karte von Looty Bay</title>
+  <meta name="description" content="Interaktive Karte von Looty Bay (ROB RUN): alle Orte, Geldautomaten, Tresore, Beute-Spots und alle 53 Mülltonnen für Zivilisten – mit Route, Fortschritt und Suche.">
+  <meta name="theme-color" content="#0b1416">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗺️</text></svg>">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Seitenleiste -->
+    <aside id="sidebar" aria-label="Filter und Suche">
+      <header class="brand">
+        <div class="brand-mark">RR</div>
+        <div>
+          <h1>Looty Bay</h1>
+          <p>ROB RUN · Interaktive Karte</p>
+        </div>
+        <button class="icon-btn only-mobile" id="closeSidebar" aria-label="Seitenleiste schließen">✕</button>
+      </header>
+
+      <div class="search">
+        <span class="search-ico" aria-hidden="true">⌕</span>
+        <input id="search" type="search" placeholder="Suchen … z. B. Tresor, Bank, Mülltonne" autocomplete="off" aria-label="Marker suchen">
+        <kbd>/</kbd>
+        <ul id="results" role="listbox" hidden></ul>
+      </div>
+
+      <nav class="presets" aria-label="Ansichten">
+        <button data-preset="civil" class="chip">🧍 Zivilist</button>
+        <button data-preset="default" class="chip">🏙️ Standard</button>
+        <button data-preset="robber" class="chip">🦹 Räuber</button>
+        <button data-preset="all" class="chip">Alle</button>
+        <button data-preset="none" class="chip">Keine</button>
+      </nav>
+
+      <div class="scroll">
+        <!-- Mülltonnen-Karte -->
+        <section class="trash-card" id="trashCard">
+          <div class="trash-head">
+            <div class="trash-badge">🗑️</div>
+            <div class="trash-title">
+              <h2>Mülltonnen</h2>
+              <p>Für Zivilisten frei zugänglich · spawnen immer</p>
+            </div>
+            <label class="switch" title="Mülltonnen ein-/ausblenden">
+              <input type="checkbox" id="trashToggle" checked>
+              <span></span>
+            </label>
+          </div>
+          <div class="trash-stats">
+            <div><b id="trashLeft">53</b><span>offen</span></div>
+            <div><b id="trashDone">0</b><span>geleert</span></div>
+            <div><b>9–18</b><span>Müll / Tonne</span></div>
+          </div>
+          <div class="progress" aria-hidden="true"><i id="trashBar"></i></div>
+          <div class="trash-actions">
+            <button class="btn primary" id="routeBtn" title="Taste R">🧭 Route planen</button>
+            <button class="btn" id="nextBtn" title="Taste N">➜ Nächste Tonne</button>
+            <button class="btn ghost" id="hideDoneBtn">👁 Geleerte ausblenden</button>
+            <button class="btn ghost" id="resetTrashBtn">↺ Alle zurücksetzen</button>
+          </div>
+          <p class="hint">Tipp: Klicke eine Tonne an und markiere sie als geleert – dein Fortschritt wird im Browser gespeichert. Die Route startet an der Tonne, die der Kartenmitte am nächsten liegt.</p>
+        </section>
+
+        <div id="groups"></div>
+
+        <section class="mine">
+          <h3>📌 Eigene Markierungen</h3>
+          <p class="hint">Rechtsklick (oder lange drücken) auf die Karte, um eine eigene Notiz zu setzen.</p>
+          <ul id="myPins"></ul>
+        </section>
+
+        <footer class="foot">
+          <p><span id="stat"></span></p>
+          <p>Daten: <a id="srcLink" target="_blank" rel="noopener">wikily.gg</a> · Stand <span id="updated"></span></p>
+          <p class="keys"><kbd>/</kbd> Suche <kbd>T</kbd> Mülltonnen <kbd>R</kbd> Route <kbd>N</kbd> Nächste <kbd>F</kbd> Vollbild</p>
+          <p class="muted">Fan-Projekt, nicht mit den Entwicklern von ROB RUN verbunden.</p>
+        </footer>
+      </div>
+    </aside>
+
+    <!-- Karte -->
+    <main id="mapWrap">
+      <div id="map" aria-label="Karte von Looty Bay"></div>
+
+      <button class="fab only-mobile" id="openSidebar" aria-label="Filter öffnen">☰ Filter</button>
+
+      <div class="toolbar" role="toolbar" aria-label="Kartenwerkzeuge">
+        <button class="tool" id="zoomIn" title="Hineinzoomen">＋</button>
+        <button class="tool" id="zoomOut" title="Herauszoomen">－</button>
+        <button class="tool" id="fitBtn" title="Ganze Stadt">⤢</button>
+        <button class="tool" id="fullBtn" title="Vollbild (F)">⛶</button>
+        <button class="tool" id="labelsBtn" title="Viertel-Namen ein/aus">Aa</button>
+        <div class="tool size" title="Markergröße">
+          <input type="range" id="sizeRange" min="0.7" max="1.6" step="0.1" value="1" aria-label="Markergröße">
+        </div>
+      </div>
+
+      <div class="coords" id="coords">x – · y –</div>
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="data/map-data.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
