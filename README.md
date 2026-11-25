@@ -3,6 +3,10 @@
 Eine schnelle, komplett statische Karte von Looty Bay mit **allen 629 Markern** in 39 Kategorien –
 inklusive **aller 53 Mülltonnen**, die man als Zivilist leeren kann.
 
+**🗺️ Live: https://d-gulyas.github.io/robrun-map/**
+
+**📐 Blaupausen: https://d-gulyas.github.io/robrun-map/blaupausen/** ([Ordner `blaupausen/`](blaupausen/))
+
 ## Funktionen
 
 - 🗑️ **Mülltonnen-Modus** für Zivilisten: alle 53 Tonnen hervorgehoben, nummeriert, mit Inhalt (9–18× Müll, 9 Griffe, ≈ $10/Stück)

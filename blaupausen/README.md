@@ -2,6 +2,10 @@
 
 Statische Webseite zum Lesen der ROB-RUN-Blaupausen direkt im Browser, ohne PDF-Download.
 
+**📐 Live: https://d-gulyas.github.io/robrun-map/blaupausen/**
+
+**🗺️ Interaktive Karte: https://d-gulyas.github.io/robrun-map/**
+
 - **Dossiers:** Anbauraum · Polizeifunk & Radio · Schlüsselräume
 - Kapitel-Navigation mit Sprung an die richtige Stelle, Seitenvorschau, Fortschrittsbalken
 - Volltextsuche über alle Blaupausen (`/`)
@@ -26,4 +30,5 @@ Das Skript erzeugt `pages/<code>/NN.webp` und `data/blaupausen.js`. Titel, Farbe
 
 ## Veröffentlichen
 
-Erst nach Freigabe. Danach Ordnerinhalt in ein GitHub-Repo laden und **Settings → Pages → main / root** aktivieren.
+Die Seite liegt im Unterordner `blaupausen/` des Repos und wird über GitHub Pages automatisch mit veröffentlicht.
+Änderungen committen und pushen – nach etwa einer Minute sind sie live.
